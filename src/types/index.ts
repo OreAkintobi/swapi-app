@@ -1,3 +1,10 @@
+export interface SWApiResult {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: any[];
+}
+
 export interface Film {
   characters: string[] | Character[];
   created: Date;
