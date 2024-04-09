@@ -1,6 +1,6 @@
 # SWAPI App
 
-This is a React + TypeScript + Vite project that uses the Star Wars API (SWAPI) to display information about the Star Wars universe. Check it out [here](https://swapi-app-kohl.vercel.app/).
+This is a React + TypeScript + Vite project that uses the Star Wars API (SWAPI) to display information about the Star Wars universe. Check it out [here](https://swapi-app-kohl.vercel.app/) or [here](https://swapi-62986omym-oreakintobis-projects.vercel.app/).
 
 ## Running the Project
 
