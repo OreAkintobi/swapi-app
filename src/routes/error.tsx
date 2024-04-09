@@ -1,7 +1,9 @@
-import { ErrorResponse, useRouteError } from 'react-router-dom';
+import { ErrorResponse, useRouteError, useNavigate } from 'react-router-dom';
 
 export const Error = () => {
   const error = useRouteError() as ErrorResponse;
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
   return (
     <div id="error-page">
@@ -10,6 +12,8 @@ export const Error = () => {
       <p>
         <i>{error.statusText}</i>
       </p>
+
+      <button onClick={goBack}>Go Back</button>
     </div>
   );
 };

@@ -1,7 +1,17 @@
-import { Outlet, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
+import { Routes } from '../types';
+import { NavLink } from '../components/nav-link.component';
 
 export const Root = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Set characters route as default when the component mounts
+    navigate(`${Routes.Characters}`);
+  }, [navigate]);
+
   return (
     <>
       <div id="sidebar">
@@ -10,14 +20,11 @@ export const Root = () => {
         </div>
         <nav>
           <ul>
+            {Object.values(Routes).map((route) => (
+              <NavLink key={route} routeName={route} />
+            ))}
             <li>
-              <Link to={`/characters`}>Characters</Link>
-            </li>
-            <li>
-              <Link to={`/planets`}>Planets</Link>
-            </li>
-            <li>
-              <Link to={`/planetsoo`}>Planets2</Link>
+              <Link to={`/error_route`}>Error</Link>
             </li>
           </ul>
         </nav>

@@ -6,7 +6,7 @@ export interface SWApiResult<T> {
 }
 
 export interface Film {
-  characters: string[] | Character[];
+  characters: string[] | People[];
   created: Date;
   director: string;
   edited: Date;
@@ -21,7 +21,7 @@ export interface Film {
   url: string;
   vehicles: string[] | Vehicle[];
 }
-export interface Character {
+export interface People {
   birth_year: string;
   eye_color: string;
   films: string[] | Film[];
@@ -49,7 +49,7 @@ export interface Planet {
   name: string;
   orbital_period: string;
   population: string;
-  residents: string[] | Character[];
+  residents: string[] | People[];
   rotation_period: string;
   surface_water: string;
   terrain: string;
@@ -67,7 +67,7 @@ export interface Specie {
   homeworld: string | Planet;
   language: string;
   name: string;
-  people: string[] | Character[];
+  people: string[] | People[];
   films: string[] | Film[];
   skin_colors: string;
   url: string;
@@ -88,7 +88,7 @@ export interface Starship {
   name: string;
   passengers: string;
   films: string[] | Film[];
-  pilots: string[] | Character[];
+  pilots: string[] | People[];
   starship_class: string;
   url: string;
 }
@@ -105,8 +105,17 @@ export interface Vehicle {
   model: string;
   name: string;
   passengers: string;
-  pilots: string[] | Character[];
+  pilots: string[] | People[];
   films: string[] | Film[];
   url: string;
   vehicle_class: string;
+}
+
+export enum Routes {
+  Characters = 'people',
+  Planets = 'planets',
+  Films = 'films',
+  Species = 'species',
+  Starships = 'starships',
+  Vehicles = 'vehicles',
 }

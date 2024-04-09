@@ -2,7 +2,7 @@ import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SWApiResult } from '../types';
 
-interface Props<T> {
+interface StarWarsInformationProps<T> {
   data: SWApiResult<T>;
   error: FetchBaseQueryError | SerializedError | undefined;
   isLoading: boolean;
@@ -14,15 +14,21 @@ export const StarWarsInformation = <T extends Record<string, string | number>>({
   error,
   isLoading,
   title,
-}: Props<T>) => {
-  if (isLoading) return <p>Loading...</p>;
+}: StarWarsInformationProps<T>) => {
+  if (isLoading)
+    return (
+      <div className="loading-view">
+        <h1 className="data-list-header">Loading...</h1>
+      </div>
+    );
+
   if (error) return <p>Error: {String(error)}</p>;
 
   return (
     <div>
-      <h1>{title}</h1>
+      <h1 className="data-list-header">{title}</h1>
       <ul className="data-list">
-        {data?.results?.map((item: any) => (
+        {data?.results?.map((item) => (
           <li key={item?.name || item?.title}>
             <h2>{item?.name || item?.title}</h2>
 
@@ -44,5 +50,3 @@ export const StarWarsInformation = <T extends Record<string, string | number>>({
     </div>
   );
 };
-
-export default StarWarsInformation;

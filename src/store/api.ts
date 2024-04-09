@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
-  Character,
+  People,
   Film,
   Planet,
+  Routes,
   SWApiResult,
   Specie,
   Starship,
@@ -14,31 +15,22 @@ export const starWarsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/' }),
   endpoints: (builder) => ({
     getPlanets: builder.query<SWApiResult<Planet>, void>({
-      query: () => 'planets/',
+      query: () => Routes.Planets,
     }),
     getFilms: builder.query<SWApiResult<Film>, void>({
-      query: () => 'films/',
+      query: () => Routes.Films,
     }),
-    getCharacters: builder.query<SWApiResult<Character>, void>({
-      query: () => 'people/',
+    getCharacters: builder.query<SWApiResult<People>, void>({
+      query: () => Routes.Characters,
     }),
     getSpecies: builder.query<SWApiResult<Specie>, void>({
-      query: () => 'species/',
+      query: () => Routes.Species,
     }),
     getStarships: builder.query<SWApiResult<Starship>, void>({
-      query: () => 'starships/',
+      query: () => Routes.Starships,
     }),
     getVehicles: builder.query<SWApiResult<Vehicle>, void>({
-      query: () => 'vehicles/',
+      query: () => Routes.Vehicles,
     }),
   }),
 });
-
-export const {
-  useGetPlanetsQuery,
-  useGetCharactersQuery,
-  useGetFilmsQuery,
-  useGetSpeciesQuery,
-  useGetStarshipsQuery,
-  useGetVehiclesQuery,
-} = starWarsApi;
