@@ -1,7 +1,7 @@
 import { Outlet, Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 
-export default function Root() {
+export const Root = () => {
   return (
     <>
       <div id="sidebar">
@@ -14,7 +14,7 @@ export default function Root() {
               <Link to={`/planets`}>Planets</Link>
             </li>
             <li>
-              <Link to={`/planets`}>Characters</Link>
+              <Link to={`/characters`}>Characters</Link>
             </li>
           </ul>
         </nav>
@@ -24,4 +24,4 @@ export default function Root() {
       </div>
     </>
   );
-}
+};

@@ -1,12 +1,8 @@
-export interface SWApiResult {
+export interface SWApiResult<T> {
   count: number;
   next: string | null;
   previous: string | null;
-  results: any[];
-}
-
-export interface PossibleResult {
-  result: Film | Character | Planet | Specie | Starship | Vehicle;
+  results: T[];
 }
 
 export interface Film {

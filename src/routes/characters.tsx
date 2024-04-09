@@ -1,18 +1,18 @@
 import DataItem from '../components/data-item';
-import { useGetPlanetsQuery } from '../store/api';
+import { useGetCharactersQuery } from '../store/api';
 
-export const Planets = () => {
-  const { data, error, isLoading } = useGetPlanetsQuery();
+export const Characters = () => {
+  const { data, error, isLoading } = useGetCharactersQuery();
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {String(error)}</p>;
 
   return (
     <div className="App">
-      <h1>Star Wars Planets</h1>
+      <h1>Star Wars Characters</h1>
       {data && <DataItem<any> data={data} />}
     </div>
   );
 };
 
-export default Planets;
+export default Characters;

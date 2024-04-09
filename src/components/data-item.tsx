@@ -1,17 +1,30 @@
-export const DataItem = ({ data }: any) => {
+import { SWApiResult } from '../types';
+
+interface Props<T> {
+  data: SWApiResult<T>;
+}
+
+export const DataItem = <T extends Record<string, string | number>>({
+  data,
+}: Props<T>) => {
   return (
     <ul className="data-list">
-      {data?.results?.map((planet: any) => (
-        <li key={planet.name}>
-          <h2>{planet.name}</h2>
-          <p>Rotation Period: {planet.rotation_period}</p>
-          <p>Orbital Period: {planet.orbital_period}</p>
-          <p>Diameter: {planet.diameter}</p>
-          <p>Climate: {planet.climate}</p>
-          <p>Gravity: {planet.gravity}</p>
-          <p>Terrain: {planet.terrain}</p>
-          <p>Surface Water: {planet.surface_water}</p>
-          <p>Population: {planet.population}</p>
+      {data?.results?.map((item: any) => (
+        <li key={item?.name || item?.title}>
+          <h2>{item?.name || item?.title}</h2>
+
+          {Object.keys(item).map(
+            (key) =>
+              // Exclude 'name' and 'url' properties
+              key !== 'name' &&
+              key !== 'url' &&
+              key !== 'title' &&
+              !Array.isArray(item[key]) && (
+                <p key={key}>
+                  {key}: {item[key]}
+                </p>
+              )
+          )}
         </li>
       ))}
     </ul>

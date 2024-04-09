@@ -4,19 +4,21 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './store/index.ts';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './routes/root.tsx';
-import ErrorPage from './error-page.tsx';
-import { Planets } from './routes/planets.tsx';
+import { Root, Planets, Characters, Error } from './routes/';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         path: 'planets',
         element: <Planets />,
+      },
+      {
+        path: 'characters',
+        element: <Characters />,
       },
     ],
   },
