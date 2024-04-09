@@ -5,6 +5,10 @@ export interface SWApiResult {
   results: any[];
 }
 
+export interface PossibleResult {
+  result: Film | Character | Planet | Specie | Starship | Vehicle;
+}
+
 export interface Film {
   characters: string[] | Character[];
   created: Date;
