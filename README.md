@@ -37,9 +37,7 @@ There are several ways you can improve on this project:
 
 ## Possible Pitfalls
 
-- **API Limitations:** The SWAPI has some limitations such as rate limiting and lack of authentication. These limitations can affect the functionality of the application.
-
-- **Lack of error handling:** The application does not have robust error handling. This can lead to unhandled exceptions and poor user experience.
+- **Lack of error handling:** The application does not have robust error handling other than the error page. There is also a few uses of `any` in one file. So it is possible that some exceptions haven't been handled completely.
 
 - **Non-responsive design:** The application is not fully responsive and may not display correctly on all screen sizes. This can lead to a poor user experience on mobile devices. I would use Material-UI or Tailwind CSS to correct this.
 
