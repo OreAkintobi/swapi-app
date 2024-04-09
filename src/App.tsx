@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { RootState, useAppDispatch, useAppSelector } from './store';
-import { getPlanetsThunk } from './store/thunks';
+import { useLazyGetPlanetsQuery } from './store/api';
 
 function App() {
-  const dispatch = useAppDispatch();
-  const { value } = useAppSelector((state: RootState) => state.planets);
+  const [fetchPlanets, { data, error, isLoading }] = useLazyGetPlanetsQuery();
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error: {String(error)}</p>;
 
   return (
     <div className="App">
@@ -13,18 +14,30 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         <div>
-          <button
-            aria-label="Increment value"
-            onClick={() => dispatch(getPlanetsThunk({ user: 'me' }))}
-          >
+          <button aria-label="Increment value" onClick={() => fetchPlanets()}>
             Get Planets
           </button>
         </div>
 
         <div>
-          {value?.map((planet) => (
-            <div key={planet.name}>{planet.name}</div>
-          ))}
+          <h1>Star Wars Planets</h1>
+          {data && (
+            <ul>
+              {data?.results?.map((planet) => (
+                <li key={planet.name}>
+                  <h2>{planet.name}</h2>
+                  <p>Rotation Period: {planet.rotation_period}</p>
+                  <p>Orbital Period: {planet.orbital_period}</p>
+                  <p>Diameter: {planet.diameter}</p>
+                  <p>Climate: {planet.climate}</p>
+                  <p>Gravity: {planet.gravity}</p>
+                  <p>Terrain: {planet.terrain}</p>
+                  <p>Surface Water: {planet.surface_water}</p>
+                  <p>Population: {planet.population}</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </header>
     </div>
