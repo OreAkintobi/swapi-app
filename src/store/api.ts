@@ -11,4 +11,4 @@ export const starWarsApi = createApi({
   }),
 });
 
-export const { useLazyGetPlanetsQuery } = starWarsApi;
+export const { useLazyGetPlanetsQuery, useGetPlanetsQuery } = starWarsApi;
