@@ -4,17 +4,7 @@ import { RootState, decrement, increment } from './store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-interface Character {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
-}
+import { Character } from './types';
 
 function App() {
   const count = useSelector((state: RootState) => state.counter.value);
