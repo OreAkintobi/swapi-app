@@ -199,15 +199,6 @@ i {
   transition-delay: 200ms;
 }
 
-#contact img {
-  width: 12rem;
-  height: 12rem;
-  background: #c8c8c8;
-  margin-right: 2rem;
-  border-radius: 1.5rem;
-  object-fit: cover;
-}
-
 #zero-state {
   margin: 2rem auto;
   text-align: center;

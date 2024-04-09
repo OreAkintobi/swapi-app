@@ -13,12 +13,12 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: 'planets',
-        element: <Planets />,
-      },
-      {
         path: 'characters',
         element: <Characters />,
+      },
+      {
+        path: 'planets',
+        element: <Planets />,
       },
     ],
   },

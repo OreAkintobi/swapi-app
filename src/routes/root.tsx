@@ -11,10 +11,13 @@ export const Root = () => {
         <nav>
           <ul>
             <li>
+              <Link to={`/characters`}>Characters</Link>
+            </li>
+            <li>
               <Link to={`/planets`}>Planets</Link>
             </li>
             <li>
-              <Link to={`/characters`}>Characters</Link>
+              <Link to={`/planetsoo`}>Planets2</Link>
             </li>
           </ul>
         </nav>
